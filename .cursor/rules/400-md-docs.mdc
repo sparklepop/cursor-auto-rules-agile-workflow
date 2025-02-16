@@ -35,14 +35,16 @@ For all basic and extended Markdown syntax, refer to:
 - Maintain proper heading hierarchy (don't skip levels)
 - Maximum heading depth: 4 levels
 - Add blank line before and after headings
+- Indent content within XML tags by 2 spaces
+- Close XML tags on their own line at the parent indentation level
 - Use blockquotes with emoji for different types of callouts:
 
 <example>
-> 🚨 **Warning:** Critical information here.
+  > 🚨 **Warning:** Critical information here.
 
-> 💡 **Tip:** Helpful suggestion.
+  > 💡 **Tip:** Helpful suggestion.
 
-> ℹ️ **Note:** Additional context.
+  > ℹ️ **Note:** Additional context.
 </example>
 
 ## Code Blocks
