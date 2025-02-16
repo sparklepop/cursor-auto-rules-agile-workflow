@@ -71,6 +71,81 @@ The AI will automatically:
 
 ## The Agile-Cursor Workflow (@801)
 
+### Work Item Hierarchy
+
+The workflow organizes work into a clear hierarchy:
+
+1. **Epics**: Large, self-contained features or functionality that deliver significant business value
+
+   - Represents a major milestone or feature set
+   - Only one Epic can be active at a time
+   - May span multiple releases
+   - Example: "Online Matchmaking System" in a chess game
+
+2. **Stories**: Smaller, implementable pieces of work within an Epic
+
+   - Must belong to an Epic
+   - Delivers specific user value
+   - Typically completed in one development cycle
+   - Example: "User Profile Creation" within the Matchmaking Epic
+
+3. **Tasks**: Concrete development activities within a Story
+
+   - Technical implementation steps
+   - Clear completion criteria
+   - Example: "Implement User Profile Database Schema"
+
+4. **Subtasks**: Granular work items within a Task
+   - Specific implementation details
+   - Often includes test requirements
+   - Example: "Write Unit Tests for Profile Validation"
+
+```mermaid
+graph TD
+    subgraph Epic Level
+        E[Epic-1: Basic Chess Game]
+    end
+
+    subgraph Story Level
+        S1[Story-1: Project Setup]
+        S2[Story-2: Chessboard UI]
+        S3[Story-3: Piece Movement]
+    end
+
+    subgraph Task Level
+        T1[Task: Create Board Grid]
+        T2[Task: Add Chess Pieces]
+        T3[Task: Implement Interaction]
+    end
+
+    subgraph Subtask Level
+        ST1[Subtask: 8x8 Grid Layout]
+        ST2[Subtask: Square Coloring]
+        ST3[Subtask: Grid Tests]
+    end
+
+    E --> S1
+    E --> S2
+    E --> S3
+    S2 --> T1
+    S2 --> T2
+    S2 --> T3
+    T1 --> ST1
+    T1 --> ST2
+    T1 --> ST3
+
+    style E fill:#f9f,stroke:#333,stroke-width:2px
+    style S1 fill:#dfd,stroke:#333,stroke-width:2px
+    style S2 fill:#dfd,stroke:#333,stroke-width:2px
+    style S3 fill:#dfd,stroke:#333,stroke-width:2px
+    style T1 fill:#bbf,stroke:#333,stroke-width:2px
+    style T2 fill:#bbf,stroke:#333,stroke-width:2px
+    style T3 fill:#bbf,stroke:#333,stroke-width:2px
+    style ST1 fill:#ffd,stroke:#333,stroke-width:2px
+    style ST2 fill:#ffd,stroke:#333,stroke-width:2px
+    style ST3 fill:#ffd,stroke:#333,stroke-width:2px
+```
+
 The `801-agile-cursor.mdc` rule defines a comprehensive workflow for project management and implementation. This powerful system can be utilized in two ways:
 
 1. **Per-Conversation Basis**: Add the `@801` tag at the start of your conversation with the AI
@@ -81,60 +156,69 @@ graph LR
     subgraph PLAN Phase
         A[Project Idea] --> B[PRD Creation]
         B --> C[Architecture Design]
-        C --> D[Story Definition]
+        C --> D[Epic Planning]
+        D --> E[Story Definition]
     end
 
     subgraph ACT Phase
-        D --> E[Story Implementation]
-        E --> F[Testing & Validation]
-        F --> G[Story Completion]
+        E --> F[Story Implementation]
+        F --> G[Testing & Validation]
+        G --> H[Story Completion]
     end
 
     subgraph Iteration
-        G --> |Next Story|D
-        G --> |Project Complete|H[Release]
+        H --> |Next Story|E
+        H --> |Epic Complete|I[Epic Completion]
+        I --> |Next Epic|D
+        I --> |Project Complete|J[Release]
     end
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#dfd,stroke:#333,stroke-width:2px
     style C fill:#dfd,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#f9f,stroke:#333,stroke-width:2px
     style E fill:#bbf,stroke:#333,stroke-width:2px
     style F fill:#bbf,stroke:#333,stroke-width:2px
     style G fill:#bbf,stroke:#333,stroke-width:2px
-    style H fill:#f9f,stroke:#333,stroke-width:2px
+    style H fill:#bbf,stroke:#333,stroke-width:2px
+    style I fill:#f9f,stroke:#333,stroke-width:2px
+    style J fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
-The diagram above shows the streamlined flow from project conception through completion, with clear separation between planning and action phases. Each story goes through the complete cycle, ensuring controlled and validated progress.
+The diagram above shows the streamlined flow from project conception through completion, with clear separation between planning and action phases. Each story goes through the complete cycle within its Epic, ensuring controlled and validated progress.
 
 ### Key Workflow Features
 
 - **Structured Documentation**:
-  - PRD (Product Requirements Document)
+  - PRD (Product Requirements Document) with Epic definitions
   - ARCH (Architecture Decision Records)
-  - Story tracking
+  - Stories organized under Epics
 - **Phase-Based Development**:
-
-  - PLAN phase: Focus on documentation and planning
-  - ACT phase: Implementation of approved stories 1 at a time
-
+  - PLAN phase: Focus on documentation, Epic planning, and story creation
+  - ACT phase: Implementation of approved stories within current Epic
 - **Controlled Progress**:
+  - Single Epic active at a time
   - Single story implementation at a time
   - Clear status progression (draft -> in_progress -> complete)
   - Required approvals before implementation
 
-### Workflow Sequence
+### File Organization
 
-1. **Planning Phase** (Documentation Focus)
+All work items are organized in the `.ai` directory following this structure:
 
-   - PRD creation and approval
-   - Architecture decisions and documentation
-   - Story creation and refinement
-
-2. **Action Phase** (Implementation Focus)
-   - Story-by-story implementation
-   - Task-level tracking
-   - Continuous testing and validation
+```
+.ai/
+├── prd.md                 # Product Requirements Document
+├── arch.md               # Architecture Decision Record
+├── epic-1/              # Current Epic directory
+│   ├── story-1.story.md  # Story files for Epic 1
+│   ├── story-2.story.md
+│   └── story-3.story.md
+├── epic-2/              # Future Epic directory
+│   └── ...
+└── epic-3/              # Future Epic directory
+    └── ...
+```
 
 ## Rule System Architecture
 
