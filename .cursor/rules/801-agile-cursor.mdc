@@ -1,5 +1,5 @@
 ---
-description: @801 Master Workflow Operating Proceedures for the AI Agent to follow to complete a project or goal from idea through inception and to final project completion.
+description: @801 Rule 801 Agile Workflow Operating Proceedures for the AI Agent to follow to complete a project or goal from idea through inception and to final project completion.
 globs: "**/*.{md,story.md,prd.md,adr.md}"
 ---
 # Agile Cursor Workflow
