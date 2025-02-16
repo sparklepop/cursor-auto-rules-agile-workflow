@@ -12,6 +12,12 @@ globs: **/*.story.md
 - Include all required sections
 - Track progress accurately
 - Maintain implementation history
+- Stories must be organized under Epic directories
+
+## File Structure
+
+Stories must be placed in their Epic's directory:
+`.ai/epic-{n}/story-{m}.story.md`
 
 ## Story Structure
 
@@ -19,7 +25,8 @@ globs: **/*.story.md
 
 #### 1. Header
 
-Story {N}: {Title}
+Epic-{N}: {Epic Title}
+Story-{M}: {Story Title}
 
 #### 2. Story Description
 
@@ -89,13 +96,14 @@ Note:
 ## Examples
 
 <example>
-# Story-1: Implement User Authentication API
+# Epic-1: Basic Chess Game
+# Story-2: Implement Chessboard UI
 
 ## Story
 
-**As a** user
-**I want** to securely log into the system
-**so that** I can access my protected resources
+**As a** chess player
+**I want** to see a clear and interactive chessboard
+**so that** I can play chess in the web browser
 
 ## Status
 
@@ -103,43 +111,47 @@ In Progress
 
 ## Context
 
-The system currently lacks user authentication. We need to implement a secure login system using JWT tokens and follow OAuth2 best practices.
+Part of Epic-1 which implements the core 2-player chess game. This story focuses on the visual and interactive aspects of the chessboard. The project setup (Story-1) is complete, providing the foundation for UI implementation.
 
 ## Estimation
 
-Story Points: 3
+Story Points: 2
 
 ## Tasks
 
-1. - [x] Setup Authentication Routes
-   1. - [x] Create login endpoint
-   2. - [x] Add input validation
-   3. - [x] Write tests
-2. - [ ] Implement JWT Handling
-   1. - [ ] Add token generation
-   2. - [ ] Setup token validation
-   3. - [ ] Write tests
+1. - [x] Create Chessboard Grid
+   1. - [x] Implement 8x8 board layout
+   2. - [x] Add square coloring
+   3. - [x] Write grid tests
+2. - [ ] Add Chess Pieces
+   1. - [ ] Create piece components
+   2. - [ ] Add piece images
+   3. - [ ] Write piece tests
+3. - [ ] Implement Basic Interaction
+   1. - [ ] Add click handlers
+   2. - [ ] Highlight selected square
+   3. - [ ] Write interaction tests
 
 ## Dev Notes
 
-- Using jsonwebtoken package for JWT operations
-- Token expiry set to 24 hours
-- Implementing refresh token pattern
+- Using React for UI components
+- Chess piece SVGs from open-source library
+- Implementing responsive design for various screen sizes
 
 ## Chat Command Log
 
-- BMad: Lets Proceed with Drafting our first story
-- Worf: Is the draft approved?
-  - Bmad: Approved! Update story status to in progress and proceed!
-- BMad: Great Job Worf, all tests are green, mark the story as complete and push all!
+- BMad: Let's implement the chessboard UI
+- AiAgent: Reviewing the design requirements. Should we use SVG or PNG for pieces?
+  - BMad: Let's use SVG for better scaling
+- AiAgent: Grid implementation complete, proceeding with piece placement
 </example>
 
 <example type="invalid">
-Auth Story
+Chess UI Story
 
 todo:
-- add login
-- make it secure
-- test stuff
+- make board
+- add pieces
+- make it work
 </example>
 

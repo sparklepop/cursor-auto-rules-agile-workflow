@@ -4,7 +4,7 @@ globs: "**/*.{md,story.md,prd.md,adr.md}"
 ---
 # Agile Cursor Workflow
 
-<version>1.0.0</version>
+<version>2.0.0</version>
 
 ## Critical Requirements
 
@@ -13,8 +13,11 @@ globs: "**/*.{md,story.md,prd.md,adr.md}"
   - [901-prd.mdc](mdc:.cursor/rules/901-prd.mdc)
   - [902-arch.mdc](mdc:.cursor/rules/902-arch.mdc)
   - [903-story.mdc](mdc:.cursor/rules/903-story.mdc)
+- PRD must define at least one Epic
+- Stories must be organized under Epics in .ai/epic-{n}/ directories
+- Only 1 Epic can be in_progress at any time
 - Only 1 story can be in_progress at any time
-- Stories must be implemented in PRD-specified order
+- Stories must be implemented in PRD-specified order within their Epic
 - Story status progression: draft -> in_progress -> complete
 - Never implement without story approval
 </critical>
@@ -23,12 +26,12 @@ globs: "**/*.{md,story.md,prd.md,adr.md}"
 
 <critical>
 PLAN phase - only modify:
-- .ai/ directory files
+- .ai/ directory files and structure
 - documentation files
 - readme files
 - workflow rules
 
-ACT phase - implement approved story tasks
+ACT phase - implement approved story tasks within current Epic
 </critical>
 
 ## Implementation Constraints
@@ -60,11 +63,11 @@ sequenceDiagram
         U->>A: Provide initial requirements
         A->>U: Ask clarifying questions
         U->>A: Provide clarifications
-        A->>U: Create and Present draft .ai/prd.md
+        A->>U: Create and Present draft .ai/prd.md with Epics
     end
 
     alt No ARCH Exists
-        A->>U: Suggest as inferred from PRD architecture suggestions
+        A->>U: Suggest architecture as inferred from PRD
         A->>U: Request architecture preferences that are still needed
         U->>A: Provide architecture context
         A->>U: Present draft .ai/arch.md
@@ -82,25 +85,32 @@ sequenceDiagram
 
     Note over U,A: ACT PHASE (Implement approved story tasks)
 
-    loop For Each Story in PRD
-        A->>U: Create and Present draft story
-        U->>A: Review and provide feedback
-        A->>U: Update story based on feedback
-        U->>A: Approve story for implementation
+    loop For Each Epic in PRD
+        Note over U,A: Only one Epic active at a time
+        
+        loop For Each Story in Current Epic
+            A->>U: Create and Present draft story
+            U->>A: Review and provide feedback
+            A->>U: Update story based on feedback
+            U->>A: Approve story for implementation
 
-        loop For Each Task in Story
-            A->>U: Implement and test task
-            alt Tests or Implementation Issues
-                A->>U: Report issues and request guidance
-                U->>A: Provide direction
-            else Success
-                A->>U: Present completed task
+            loop For Each Task in Story
+                A->>U: Implement and test task
+                alt Tests or Implementation Issues
+                    A->>U: Report issues and request guidance
+                    U->>A: Provide direction
+                else Success
+                    A->>U: Present completed task
+                end
             end
-        end
 
-        A->>U: Present completed story
-        U->>A: Verify and approve completion
+            A->>U: Present completed story
+            U->>A: Verify and approve completion
+        end
+        
+        A->>U: Present completed Epic
+        U->>A: Verify and approve Epic completion
     end
 ```
 
-Note: This diagram illustrates the direct interaction between the USER (Admiral) and the AGENT (AI Composer), showing the complete workflow from planning through implementation while enforcing the single-story constraint.
+Note: This diagram illustrates the direct interaction between the USER (Admiral) and the AGENT (AI Composer), showing the complete workflow from planning through implementation while enforcing the single-epic-story constraint.
