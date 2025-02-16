@@ -2,6 +2,28 @@
 
 This repository serves as a foundational template for establishing AI-driven workflow automation using Cursor's rule system. The core philosophy is that users should never need to manually create or update rules - instead, the AI agent handles rule creation and maintenance through natural language requests.
 
+## Quick Start - Adding Rules to Your Project
+
+Getting started with these workflow rules in your project is incredibly simple! Just run our deployment script:
+
+```bash
+# Clone this repository
+git clone https://github.com/bmadcode/cursor-auto-rules-agile-workflow.git
+cd cursor-auto-rules-agile-workflow
+
+# Apply rules to your project
+./apply-rules.sh /path/to/your/project
+```
+
+The script will:
+
+1. Copy all template rules to your project's `.cursor/rules/` directory
+2. Add documentation to `docs/workflow-rules.md`
+3. Update `.gitignore` to protect private rules
+4. Preserve any existing rules in your project
+
+That's it! Your project is now configured with our powerful AI workflow system.
+
 ## Overview
 
 This template revolutionizes how you work with AI by providing:
