@@ -1,0 +1,83 @@
+---
+description: ALWAYS use when making commits or managing git workflow to ensure consistent version control practices. This rule enforces conventional commit messages and proper staging/push procedures.
+globs: 
+---
+# Git Workflow Standards
+
+<version>1.0.0</version>
+
+## Requirements
+
+- Use conventional commit message format
+- Follow proper staging and push procedures
+- Include detailed change documentation
+- Sign commits with "-bmadAi"
+
+## Commit Message Format
+- Use format: `type(scope): brief description`
+- Keep titles brief and descriptive (max 72 chars)
+- Add two newlines after commit title
+- Include diff summary of all changes
+- Add detailed explanations in commit body
+- End with signature "-bmadAi"
+
+### Message Template
+
+<example>
+type(scope): brief description
+
+Changes made in this commit:
+- Modified files: [list of modified files]
+- Added files: [list of added files]
+- Deleted files: [list of deleted files]
+- Key changes:
+  - [specific change 1]
+  - [specific change 2]
+  ...
+
+Detailed explanation of changes and reasoning...
+
+-bmadAi
+</example>
+
+## Workflow Procedures
+
+### Staging Changes
+- Default to using `git add .` for staging all changes
+- Exception: When specific file staging is explicitly required
+- Always review staged changes with `git diff --staged` before committing
+
+### Push All Workflow
+
+1. Update story task completion status
+2. Document implementation notes
+3. Review changes via git diff
+4. Stage all changes
+5. Create descriptive commit with diff summary
+6. Push to remote
+
+## Examples
+
+<example>
+feat(auth): implement OAuth2 login flow
+
+Changes made in this commit:
+- Modified files: auth.service.ts, auth.config.ts
+- Added files: oauth.handler.ts, token.service.ts
+- Key changes:
+  - Added OAuth2 client configuration
+  - Implemented token refresh mechanism
+  - Added user session management
+  - Updated authentication middleware
+
+This implementation follows the OAuth 2.0 specification for authorization code flow.
+The token refresh mechanism uses a sliding window approach for better security.
+Session management includes both memory and persistent storage options.
+Authentication middleware now supports both session and token-based auth.
+
+-bmadAi
+</example>
+
+<example type="invalid">
+fixed stuff
+</example> 
