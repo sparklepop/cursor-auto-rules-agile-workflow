@@ -3,13 +3,14 @@
 ## Critical Requirements
 
 <critical>
-- All documentation must be in .ai/ directory following templates:
+- All documentation created must follow these templates:
   - @prd-template.md
   - @arch-template.md
   - @story-template.md
 - PRD must define at least one Epic
 - Stories must be organized under Epics in .ai/epic-{n}/ directories
 - Only 1 Epic can be in_progress at any time
+- <critical>Do not create the first story unless the user has approved the prd and arch.</critical>
 - Only 1 story can be in_progress at any time
 - Stories must be implemented in PRD-specified order within their Epic
 - Story status progression: draft -> in_progress -> complete
@@ -32,7 +33,7 @@ ACT phase - implement approved story tasks within current Epic
 
 - Begin sessions by reviewing .ai/prd.md and .ai/arch.md
 - Stories created as .ai/story-{number}.story.md
-- Update ADR change log for major changes
+- Update arch.md change log for major changes
 - Maintain test coverage and documentation
 - Record all implementation notes and commands
 
@@ -40,7 +41,7 @@ ACT phase - implement approved story tasks within current Epic
 
 1. Verify .ai directory exists
 2. Locate active .ai/prd.md and .ai/arch.md
-3. Identify story status
+3. Identify story status if one exists
 4. Report current workflow state
 
 ## Workflow Sequence

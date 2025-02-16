@@ -31,7 +31,26 @@ This template revolutionizes how you work with AI by providing:
 1. **Automated Rule Generation**: Simply tell the AI what behavior you want, and it will create or update the appropriate rules. No manual rule writing required!
 2. **Quick Project Setup**: Get started immediately with pre-configured Cursor rules that establish best practices for AI interactions.
 3. **Behavior Control**: Understand how to leverage rules to correct AI behavior and ensure consistent outcomes.
-4. **Agile-Cursor Workflow**: Access to a powerful workflow system that guides projects from conception to completion.
+
+## Workflow Templates and Notepads
+
+The workflow templates and process documentation have been moved to the `xnotes` directory to be used as templates with Cursor's Notepads feature. This provides a more flexible and accessible way to manage workflows and templates:
+
+### Available Notepads
+
+- `prd-template` - Product Requirements Document template
+- `arch-template` - Architecture documentation template
+- `story-template` - User story template
+- `workflow-agile` - Agile workflow process guide
+- `gitpush` - Automated git commit and push workflow
+
+### Rule Versions
+
+Files in `xnotes` with a ### prefix (e.g. `###-agile-cursor.mdc`) are rule versions of the same templates. These can be:
+
+1. Used directly from `xnotes`
+2. Moved to the `.cursor/rules` directory if you want them automatically attached to every agent context
+3. Referenced through a rules-for-ai setting (e.g., to always follow rule 801)
 
 ## How It Works
 
