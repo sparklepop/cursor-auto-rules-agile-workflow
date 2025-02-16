@@ -1,4 +1,4 @@
-# Cursor Workflow Rules Template
+# Cursor Automatic Rules Generation with Agile Cursor Workflow Template
 
 This repository serves as a foundational template for establishing AI-driven workflow automation using Cursor's rule system. The core philosophy is that users should never need to manually create or update rules - instead, the AI agent handles rule creation and maintenance through natural language requests.
 
