@@ -1,0 +1,107 @@
+---
+description: ALWAYS use when creating a new PRD or modifying an existing one to ensure consistent structure and completeness. This rule enforces standardized PRD format with all required sections and proper documentation hierarchy.
+globs: **/*.{md,prd.md}
+---
+# PRD Template Standards
+
+<version>1.0.0</version>
+
+## Requirements
+
+- Follow standardized PRD structure
+- Include all required sections
+- Maintain proper documentation hierarchy
+- Use consistent formatting
+
+## PRD Structure
+
+### Required Sections
+
+#### 1. Header
+- Title: "Product Requirements Document (PRD) for {project-name}"
+
+#### 2. Status
+- Draft (default)
+- Approved
+
+#### 3. Introduction
+- Clear description of {project-name}
+- Overview of the project scope
+- Business context and drivers
+- Target users/stakeholders
+
+#### 4. Goals
+- Clear project objectives
+- Measurable outcomes
+- Success criteria
+- Key performance indicators (KPIs)
+
+#### 5. Features and Requirements
+- Functional requirements
+- Non-functional requirements
+- User experience requirements
+- Integration requirements
+- Compliance requirements
+
+#### 6. Story List
+- Format: Story-{N}: {Description of story/task}
+- Granular steps and milestones
+- Clear sequential progression path
+- Implementable chunks
+- Dependencies between stories
+
+#### 7. Future Enhancements
+- Potential features for future consideration
+- Ideas collected during story progression
+- Prioritization guidelines
+- Impact assessment
+
+## Examples
+
+<example>
+# Product Requirements Document (PRD) for User Authentication System
+
+## Status: Draft
+
+## 1. Introduction
+This PRD outlines the implementation of a secure user authentication system that will provide robust identity management for our platform. The system will serve both individual users and enterprise clients, ensuring secure access to protected resources while maintaining compliance with industry standards.
+
+## 2. Goals
+- Implement secure user authentication with 99.99% availability
+- Support multiple authentication methods (password, SSO, 2FA)
+- Ensure GDPR and SOC2 compliance
+- Reduce login-related support tickets by 80%
+
+## 3. Features and Requirements
+### Functional Requirements
+- User registration and login
+- Password reset functionality
+- Multi-factor authentication
+- Session management
+
+### Non-functional Requirements
+- Response time < 200ms
+- 99.99% uptime
+- Data encryption at rest and in transit
+- GDPR compliance
+
+## 4. Story List
+Story-1: Basic Authentication Setup
+Story-2: OAuth Integration
+Story-3: User Session Management
+Story-4: Multi-factor Authentication
+Story-5: Admin Dashboard
+
+## 5. Future Enhancements
+- Biometric authentication support
+- Enterprise SSO integrations
+- Advanced security monitoring
+- User behavior analytics
+</example>
+
+<example type="invalid">
+Authentication System
+- Add login
+- Maybe some security stuff
+- Other things we might need
+</example>

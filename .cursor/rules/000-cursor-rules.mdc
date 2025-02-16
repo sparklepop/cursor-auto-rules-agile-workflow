@@ -1,0 +1,197 @@
+---
+description: Standards for placing and formatting Cursor rule files with Markdown for optimal AI rule generation
+globs: .cursor/rules/*.mdc
+---
+# Cursor Rules for Generating New Rules
+
+<version>1.1.0</version>
+
+## Format Requirements
+
+- Use Markdown [400-md-docs.mdc](mdc:.cursor/rules/400-md-docs.mdc) as the primary formatting method for all mdc files.
+- Use XML-style tags ONLY for:
+  - Surrounding examples marked as good (e.g., <example>...</example>).
+  - Surrounding examples marked as bad (e.g., <example type="invalid">...</example>).
+  - Denoting the semantic version (e.g., <version>1.1.0</version>).
+  - Marking extremely dangerous callouts (e.g., <danger>...</danger>).
+  - Marking a field as <required>...<required>
+- <danger>NEVER include personality instructions in shared rules</danger>
+  - Personality settings should be managed through:
+    - Global Cursor settings for shared team preferences
+    - Private `_*.mdc` rules for individual preferences
+  - This ensures:
+    - Clean separation of technical rules and personality preferences
+    - Consistent team-wide technical standards
+    - Flexibility for individual communication styles
+
+## Versioning Requirements
+
+- All rules must follow semantic versioning (MAJOR.MINOR.PATCH)
+- Version numbers must be incremented according to the following rules:
+  - MAJOR: Breaking changes that require updates to existing rules or processes
+  - MINOR: New functionality added in a backward compatible manner
+  - PATCH: Backward compatible bug fixes or clarifications
+- Version must be specified in version tag
+- Version changes must be documented in commit messages
+- Initial version should start at 1.0.0
+
+## File Requirements
+
+- All cursor rule files must have `.mdc` extension
+- Files must be placed in the `.cursor/rules` directory
+- Files must include proper frontmatter with description and globs
+- Files must be primarily written in Markdown (and Mermaid where appropriate). XML tags should only be used to surround examples marked as good or bad, the semantic version, and extremely critical callouts.
+
+## Naming Conventions
+
+- Use kebab-case for file names (e.g., `000-your-rule-name.mdc`)
+- Private rules must be prefixed with an underscore:
+  - Format: `_descriptive-name.mdc`
+  - These are personal rules that will be gitignored
+  - Used for individual workflow preferences or custom personalities
+  - Will not impact other team members
+  - Example: `_my-workflow.mdc`, `_custom-personality.mdc`
+- All shared rules must follow the prefix-based classification system:
+  - Core rules (0XX): Fundamental rules and standards
+    - Example: `000-cursor-rules.mdc`, `001-core-standards.mdc`
+  - Tool and MCP rules (1XX): Tool-specific configurations and Model Context Protocol rules
+    - Example: `100-git.mdc`, `101-aws-api.mdc`
+  - Testing rules and standards (3XX): Testing conventions and practices
+    - Example: `300-unit-test.mdc`, `301-integration-test.mdc`
+  - Language-specific rules (1XXX): Rules for specific programming languages
+    - Must include language identifier after prefix
+    - Use the second digit to group by language family:
+      - TypeScript/JavaScript (10XX): `1000-ts-variables.mdc`, `1001-ts-functions.mdc`
+      - HTML/CSS (11XX): `1100-html-structure.mdc`, `1101-html-semantics.mdc`
+      - Python (12XX): `1200-py-imports.mdc`, `1201-py-classes.mdc`
+      - And so on...
+  - Framework/library rules (2XXX): Framework and library-specific guidelines
+    - Must include framework/library identifier after prefix
+    - Use the second digit to group by framework/library family:
+      - React/Next.js (20XX): `2000-react-hooks.mdc`, `2001-react-components.mdc`
+      - AWS (21XX): `2100-aws-ddb.mdc`, `2101-aws-lambda.mdc`
+      - Tailwind (22XX): `2200-twcss-classes.mdc`, `2201-twcss-layouts.mdc`
+      - And so on...
+  - Workflows (8XX): Workflow and process-related rules
+    - Example: `801-prd-adr-story.mdc`, `802-deployment.mdc`
+  - Templates (9XX): Template and boilerplate rules
+    - Example: `901-prd.mdc`, `902-story.mdc`
+- Names should be descriptive of the rule's purpose
+- Extension must be `.mdc`
+
+## Frontmatter Fields
+
+### <required>Field: description</required>
+
+- Must be optimized for AI rule selection and context efficiency
+- Start with action words (e.g., "ALWAYS", "NEVER", "USE") for trigger scenarios
+- Clearly specify when the rule should be applied
+- Be concise but complete (ideally 1 short sentences)
+- Include key trigger words relevant to the rule's purpose
+- Must match metadata description exactly
+
+### Field: globs
+
+<danger>Leave blank for non-scoped rules</danger>
+
+- Only specify when rule needs to be scoped to specific:
+  - File types (e.g., *.ts, *.test.cpp)
+  - Code sections (e.g., src/features/**/*.*)
+- Do not use quotes around glob patterns
+- Example Patterns:
+  - All TypeScript: <example>**/*.ts</example>
+  - All Tests: <example>**/*.test.*, *Test.cpp</example>
+  - Specific feature: <example>src/feature-name/**/*.*</example>
+  - All HTML but invalid: <example type="invalid">"**/*.html"</example>
+
+### Directory Structure
+
+- root: PROJECT_ROOT/
+- required_path: .cursor/rules/
+- prohibited_locations:
+  - Project root
+  - Subdirectories outside .cursor/rules
+  - Any other location
+
+### Rule Structure
+
+Each rule file should use the following structure:
+
+```markdown
+---
+description: ACTION_WORD when TRIGGER_SCENARIO to ensure OUTCOME
+globs: **/*.ts
+---
+
+# Rule Name for TypeScript Files
+
+<version>1.1.0</version>
+
+## Requirements
+
+List of specific requirements
+
+## Examples
+
+<example>
+  Example of correct implementation
+</example>
+
+<example type="invalid">
+  Example of what to avoid
+<example>
+```
+OR for process-related rules:
+
+```mdc
+---
+description: ACTION_WORD when TRIGGER_SCENARIO to ensure OUTCOME
+globs: 
+---
+```
+### Examples
+
+<example type="invalid" reason="missing frontmatter">
+  ```mdc
+  No frontmatter fields
+  # My Rule
+  ...
+  ```
+</example>
+<example type="invalid" reason="wrong location">
+  ```
+  rules/my-rule.mdc
+  my-rule.mdc
+  .rules/my-rule.mdc
+  ```
+<example>
+
+<example>
+  ```mdc
+  ---
+  description: ALWAYS use when writing new components to ensure consistent styling
+  globs: **/*.{tsx,jsx}
+  ---
+
+  # Component Styling Standards
+
+  <version>1.1.0</version>
+
+  ## requirements
+
+  - Use Tailwind utility classes
+  - Follow responsive design patterns
+  - Maintain consistent spacing
+
+  ## Examples
+
+  <example>
+  ## Correct Usage
+
+  Example of properly styled component
+
+  ## Incorrect Usage
+
+  Example of styling anti-patterns
+  </example>
+```

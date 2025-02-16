@@ -1,0 +1,4 @@
+node_modules
+/xnotes
+# Private individual user cursor rules
+.cursor/rules/_*.mdc

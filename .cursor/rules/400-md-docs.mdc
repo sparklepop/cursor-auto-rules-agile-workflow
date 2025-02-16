@@ -1,0 +1,323 @@
+---
+description: ALWAYS use when writing or updating Markdown files to ensure consistent formatting and readability. This rule enforces standardized Markdown practices across all documentation.
+globs: **/*.{md,mdx}
+---
+# Markdown Documentation Standards
+
+<version>1.0.0</version>
+
+## Requirements
+
+- Follow consistent heading hierarchy
+- Use proper Markdown syntax
+- Maintain clear document structure
+- Include appropriate metadata
+- Follow line length and spacing rules
+- Use proper link and image formatting
+
+## Formatting Rules
+
+### Headings
+
+- Use ATX-style headings with space after hash: `# Heading`
+- Maintain proper heading hierarchy (don't skip levels)
+- Maximum heading depth: 4 levels
+- Add blank line before and after headings
+
+<example>
+# Main Title
+
+## Section
+
+### Subsection
+
+#### Detail
+
+</example>
+
+<example type="invalid">
+#Wrong Title
+##Bad Section
+######Too Deep
+</example>
+
+### Lists
+
+- Use hyphen (-) for unordered lists
+- Use 1. for ordered lists
+- Indent nested lists with 2 spaces
+- Add blank line before and after lists
+
+<example>
+- First level
+  - Second level
+    - Third level
+
+1. First step
+2. Second step
+   - Sub-item
+   - Another sub-item
+</example>
+
+### Code Blocks
+
+- Use triple backticks with language specification
+- Indent code blocks properly
+- Add blank line before and after
+- Use inline code for short references
+
+<example>
+```typescript
+function example(): void {
+  console.log('Hello, Universe!');
+}
+```
+
+Reference the `example()` function inline.
+</example>
+
+### Links and Images
+
+- Use reference-style links for repeated URLs
+- Include alt text for images
+- Group reference links at bottom of section
+- Use descriptive link text
+
+<example>
+[Visit our docs][docs-link]
+![Project Logo](mdc:assets/logo.png "Project Logo")
+
+[docs-link]: https://example.com/docs
+</example>
+
+### Tables
+
+- Use alignment indicators
+- Include header row separator
+- Keep tables simple and readable
+- Add blank lines before and after
+
+<example>
+| Name    | Type    | Description     |
+|:--------|:-------:|---------------:|
+| id      | number  | Primary key    |
+| name    | string  | User's name    |
+</example>
+
+### Line Length and Spacing
+
+- Limit lines to 80 characters
+- Use single blank line between paragraphs
+- Use two blank lines between sections
+- No trailing whitespace
+
+<example>
+This is a paragraph that demonstrates proper line length and wrapping. It should 
+not exceed 80 characters per line.
+
+This is another paragraph with proper spacing.
+</example>
+
+### Emphasis and Formatting
+
+- Use **bold** for emphasis
+- Use *italics* for secondary emphasis
+- Use ~~strikethrough~~ sparingly
+- Use > for blockquotes
+- Use horizontal rules (---) to separate major sections
+
+<example>
+**Important note:** This is a critical section.
+
+*Additional information* can be found here.
+
+> This is a notable quote or callout.
+
+---
+</example>
+
+### Special Elements
+
+#### Callouts
+
+Use blockquotes with emoji for different types of callouts:
+
+<example>
+> 🚨 **Warning:** Critical information here.
+
+> 💡 **Tip:** Helpful suggestion.
+
+> ℹ️ **Note:** Additional context.
+</example>
+
+#### Task Lists
+
+Use GitHub-style task lists for tracking items:
+
+<example>
+- [x] Completed task
+- [ ] Pending task
+  - [x] Subtask 1
+  - [ ] Subtask 2
+</example>
+
+### Mermaid Diagrams
+
+Use Mermaid diagrams to visualize:
+- Architecture flows
+- Process sequences
+- Decision trees
+- State machines
+- Component relationships
+- AI agent rule flows
+
+#### When to Use Mermaid
+
+- Complex workflows need visualization
+- System architecture needs to be explained
+- Process flows have multiple branches
+- State transitions need to be clear
+- AI decision trees need to be mapped
+
+#### Diagram Types and Usage
+
+<example>
+```mermaid
+---
+title: Story Implementation Flow
+---
+flowchart TD
+    A[New Story Request] --> B{PRD Exists?}
+    B -->|No| C[Create PRD]
+    B -->|Yes| D{PRD Approved?}
+    D -->|No| E[Review PRD]
+    D -->|Yes| F[Create Story]
+    F --> G[Implement Story]
+    G --> H[Tests Pass?]
+    H -->|No| G
+    H -->|Yes| I[Mark Complete]
+```
+
+```mermaid
+---
+title: AI Agent Rule Processing
+---
+stateDiagram-v2
+    [*] --> CheckRules
+    CheckRules --> ApplyRule: Rule Found
+    CheckRules --> RequestClarification: No Rule Match
+    ApplyRule --> ValidateResult
+    ValidateResult --> [*]: Success
+    ValidateResult --> CheckRules: Failure
+    RequestClarification --> CheckRules
+```
+
+```mermaid
+---
+title: System Architecture
+---
+graph TB
+    subgraph Frontend
+        UI[User Interface]
+        State[State Management]
+    end
+    
+    subgraph Backend
+        API[API Gateway]
+        Auth[Authentication]
+        DB[(Database)]
+    end
+    
+    UI --> API
+    API --> Auth
+    Auth --> DB
+```
+</example>
+
+#### Diagram Best Practices
+- Include clear titles using the `---` syntax
+- Use descriptive node labels
+- Add comments for complex flows
+- Group related components using subgraphs
+- Use consistent direction (TD/LR/TB)
+- Keep diagrams focused and specific
+
+<example type="invalid">
+```mermaid
+graph TD
+A-->B
+B-->C
+```
+
+No title, unclear labels, no context
+</example>
+
+### File Organization
+
+#### Front Matter
+
+- Use YAML front matter for metadata
+- Include required fields
+- Keep metadata concise
+
+<example>
+---
+title: Document Title
+author: BMad
+date: 2024-02-16
+status: draft
+---
+</example>
+
+#### Document Structure
+
+1. Front Matter
+2. Title
+3. Overview/Introduction
+4. Main Content
+5. References (if any)
+6. Appendices (if any)
+
+## Examples
+
+<example>
+---
+title: Project Overview
+author: BMad
+date: 2024-02-16
+---
+
+# Project Name
+
+## Overview
+
+This project aims to revolutionize documentation practices.
+
+### Features
+
+- **Automated Formatting:** Ensures consistency
+- **Version Control:** Tracks changes
+- **Integration:** Works with existing tools
+
+## Implementation
+
+1. Install dependencies
+2. Configure settings
+3. Start using
+
+> 💡 **Tip:** Check our [setup guide][guide] for details.
+
+[guide]: https://example.com/guide
+</example>
+
+<example type="invalid">
+project stuff
+============
+some things about the project
+* bad list
+* no structure
+  * random indentation
+    * too deep
+
+LOUD HEADING
+</example>
