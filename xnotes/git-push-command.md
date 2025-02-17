@@ -8,7 +8,7 @@ globs:
 - Create a git commit message without newline characters
 - Use format: `type(scope): brief description`
 - Keep titles brief and descriptive (max 72 chars)
-- Add two newlines after commit title
+- Add two new lines after commit title without newline characters
 - Include diff summary of all changes
 - Add detailed explanations in commit body
 - End with signature "-bmadAi"
