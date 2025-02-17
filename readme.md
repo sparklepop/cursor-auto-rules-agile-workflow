@@ -8,6 +8,20 @@ This is a template for establishing automatic generation of self improving granu
 
 > 💡 **Note:** For a complete guide to the Agile-Cursor Workflow system that helps manage your project with exceptional memory and consistency, see [Agile Workflow Documentation](docs/agile-readme.md).
 
+## IMPORTANT INFORMATION ABOUT THIS TEMPLATE
+
+This template fixes issues with other proposed rules generators by ensuring rules are always created successfully (do not disapear after the agent creates the rule), and are always optimized for agent automatic selection based on very clear simple frontmatter descriptions and globs as needed.
+
+Also a lot of research has gone into the best way to format rules - as there are so many competing and half baked theories - through a lot of research, mining forums and studies, and guides for Claude prompt engineering guides, client recommendations, cursor developer comments in reddit and forums, the rules will follow a general format of:
+
+- Frontmatter with description and globs in proper yaml format
+- Semantic versioning
+- Markdown formatting
+- XML tags for specific use cases, callouts, rules and highlights
+- Mermaid flowcharts or sequence diagrams to succinctly drive the AIs understanding
+- Keep rules as short as possible while being maximally effective
+- Include examples of good and bad patterns in rules as this is a big aid to the AI Agent LLM in understanding the rule and applying it correctly
+
 ## Quick Start A - Starting a New Project with the Agile Workflow and Rules Generator already in place!
 
 This will set up a brand new project folder with cursor rules and agile workflow documentation already in place, along with a starter prompt to kick off your new project with the agile workflow!
