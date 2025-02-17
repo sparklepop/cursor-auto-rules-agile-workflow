@@ -1,14 +1,14 @@
 ---
-description: Use ALWAYS when asked to CREATE A RULE for Cursor
+description: Use ALWAYS when asked to CREATE A RULE or UPDATE A RULE or taught a lesson from the user that should be retained as a new rule for Cursor
 globs: .cursor/rules/*.mdc
 ---
 # Cursor Rules Format
 ---
-description: Use ALWAYS when asked to CREATE A RULE
+description: Use ALWAYS when asked to CREATE A RULE or UPDATE A RULE or taught a lesson from the user that should be retained as a new rule for Cursor
 author: BMad
-date: 2025-02-16
-status: draft
-version: 2.0.0
+date: 2025-02-17
+status: approved
+version: 3.0.0
 ---
 ## Core Structure
 
@@ -23,8 +23,6 @@ version: Major.Minor.Patch
 
 # Rule Title
 
-<version>X.Y.Z</version>
-
 ## Context
 - When to apply this rule
 - Prerequisites or conditions
@@ -35,11 +33,11 @@ version: Major.Minor.Patch
 
 ## Examples
 <example>
-Good example with explanation
+Good concise example with explanation
 </example>
 
 <example type="invalid">
-Anti-pattern with explanation
+Invalid concise example with explanation
 </example>
 ```
 
@@ -76,184 +74,47 @@ PREFIX-name.mdc where PREFIX is:
 
 ## Formatting Guidelines
 
-- Use Markdown per [400-md-docs.mdc](mdc:.cursor/rules/400-md-docs.mdc)
+- Use Concise Markdown primarily
 - XML tags limited to:
   - <example>
   - <danger>
   - <required>
-- Always indent content within XML tags by 2 spaces
-- Close tags on their own line at the parent indentation level
+  - <rules>
+  - <rule>
+  - <critical>
+- Always indent content within XML or nested XML tags by 2 spaces
+- Keep rules as short as possbile
+- Use Mermaid syntax if it will be shorter or clearer than describing a complex rule
+- Use Emojis where appropriate to convey meaning that will improve rule understanding by the AI Agent
+- Keep examples as short as possible to clearly convey the positive or negative example
 
-<danger>
-  NEVER include personality instructions in rules
-</danger>
-
-## Version Control
+## Version Control when Updating an Existing Rule
 
 - Follow semantic versioning (MAJOR.MINOR.PATCH)
 - Document changes in commit messages
-- Start at version 1.0.0
+- Start at version 1.0.0 for new rule
+- Always update the version if modifying an existing rule - use your judgement of the impact of the change to the rule to determin if its a major minor or patch increment.
 
 ## AI Optimization Tips
 
 1. Use precise, deterministic ACTION TRIGGER OUTCOME format in descriptions
 2. Include only essential tags that directly impact rule application
 3. Set clear priority levels to resolve conflicts efficiently
-4. Provide concise, testable requirements without redundancy
-5. Include minimal but effective examples for pattern matching
-6. Optimize for AI context window efficiency
-7. Remove any non-essential metadata or formatting
+4. Provide concise positive and negative example of rule application in practice
+5. Optimize for AI context window efficiency
+6. Remove any non-essential or redundant information
 
 ## AI Context Efficiency
 
-1. Keep descriptions under 100 characters while maintaining clarity
+1. Keep frontmatter description under 120 characters (or less) while maintaining clear intent for rule selection by AI AGent
 2. Limit examples to essential patterns only
 3. Use hierarchical structure for quick parsing
 4. Remove redundant information across sections
 5. Maintain high information density with minimal tokens
 6. Focus on machine-actionable instructions over human explanations
 
-<danger>
-  NEVER include verbose explanations or redundant context that increases AI token overhead
-</danger>
+<critical>
+  - NEVER include verbose explanations or redundant context that increases AI token overhead
+  - Keep file as short and to the point as possible BUT NEVER at the expense of sacrificing rule impact and usefulness for the AI Agent.
+</critical>
 
-## Examples
-
-<example>
-  ---
-  description: ALWAYS use TypeScript interfaces for data models
-  globs: **/*.ts
-  tags: [typescript, interfaces, models]
-  priority: 2
-  version: 1.0.0
-  ---
-
-  # TypeScript Interface Standards
-
-  <version>1.0.0</version>
-
-  ## Context
-  - When defining data structures
-  - For API responses
-
-  ## Requirements
-  - Use interfaces over types
-  - Include JSDoc comments
-  - Define readonly when immutable
-
-  ## Examples
-  <example>
-    interface User {
-      readonly id: string;
-      name: string;
-      email: string;
-    }
-  </example>
-</example>
-
-<example>
-  ---
-  description: ALWAYS follow TDD principles when implementing new TypeScript functions
-  globs: **/*.{ts,test.ts}
-  tags: [typescript, testing, tdd, jest, functions]
-  priority: 1
-  version: 1.0.0
-  ---
-
-  # Rule: TypeScript TDD Standards
-
-  <version>1.0.0</version>
-
-  ## Context
-  - When implementing any new TypeScript function
-  - When modifying existing function behavior
-  - When fixing bugs in functions
-
-  ## Requirements
-  - Write failing test before implementation
-  - Implement minimal code to make test pass
-  - Refactor while maintaining test coverage
-  - One function, one responsibility
-  - Tests must be descriptive and focused
-
-  ## Process Flow
-
-  ```mermaid
-  sequenceDiagram
-      participant D as Developer
-      participant T as Test File
-      participant I as Implementation File
-      
-      Note over D,I: Red Phase
-      D->>T: 1. Write test describing expected behavior
-      D->>T: 2. Run tests to verify failure
-      
-      Note over D,I: Green Phase
-      D->>I: 3. Write minimal implementation
-      D->>T: 4. Run tests to verify success
-      
-      Note over D,I: Refactor Phase
-      D->>I: 5. Improve code quality
-      D->>T: 6. Enhance test clarity if needed
-      D->>T: 7. Verify tests still pass
-  ```
-
-  ## Examples
-
-  <example>
-    # Good Practice: Following TDD Workflow
-
-    1. First, write the test (Red Phase):
-    ```typescript
-    // userService.test.ts
-    describe('UserService', () => {
-      describe('validateEmail', () => {
-        it('should return true for valid email', () => {
-          expect(UserService.validateEmail('picard@enterprise.com')).toBe(true);
-        });
-      });
-    });
-    ```
-
-    2. Then, implement minimal code (Green Phase):
-    ```typescript
-    // userService.ts
-    export class UserService {
-      static validateEmail(email: string): boolean {
-        return email.includes('@');
-      }
-    }
-    ```
-
-    3. Finally, refactor with proper validation (Refactor Phase):
-    ```typescript
-    // userService.ts
-    export class UserService {
-      static validateEmail(email: string): boolean {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-      }
-    }
-    ```
-  </example>
-
-  <example type="invalid">
-    # Anti-Pattern: Skipping TDD Steps
-
-    ```typescript
-    // BAD: Writing implementation first
-    export class UserService {
-      static validateEmail(email: string): boolean {
-        return email.includes('@');
-      }
-    }
-
-    // Tests added as afterthought
-    describe('UserService', () => {
-      it('validates email', () => {
-        expect(UserService.validateEmail('test@test.com')).toBe(true);
-      });
-    });
-    ```
-  </example>
-</example>
