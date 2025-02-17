@@ -18,8 +18,8 @@ fi
 # Create .cursor/rules directory if it doesn't exist
 mkdir -p "$TARGET_DIR/.cursor/rules"
 
-# Copy all rule files
-echo "Copying rule files..."
+# Copy core rule files
+echo "📦 Copying core rule files..."
 cp -n .cursor/rules/*.mdc "$TARGET_DIR/.cursor/rules/"
 
 # Create docs directory if it doesn't exist
@@ -29,19 +29,48 @@ mkdir -p "$TARGET_DIR/docs"
 cat > "$TARGET_DIR/docs/workflow-rules.md" << 'EOL'
 # Cursor Workflow Rules
 
-This project uses the Cursor AI workflow rules template from [cursor-auto-rules-agile-workflow](https://github.com/bmadcode/cursor-auto-rules-agile-workflow).
+This project has been updated to use the auto rule generator from [cursor-auto-rules-agile-workflow](https://github.com/bmadcode/cursor-auto-rules-agile-workflow).
 
-> **Note**: This script can be safely re-run at any time to update the template rules to their latest versions. It will not impact or overwrite any custom rules you've created. This allows you to receive improvements and updates to the template rules as they become available.
+> **Note**: This script can be safely re-run at any time to update the template rules to their latest versions. It will not impact or overwrite any custom rules you've created.
 
-The template provides:
+## Core Features
+
 - Automated rule generation
-- Agile workflow integration
 - Standardized documentation formats
-- AI behavior control
+- AI behavior control and optimization
+- Flexible workflow integration options
 
-For more information, please refer to the template repository.
+## Workflow Integration Options
 
-> **Note**: This documentation file can be safely removed if desired, as it serves only as an informational marker that the template has been applied.
+### 1. Automatic Rule Application (Recommended)
+The core workflow rules are automatically installed in `.cursor/rules/`:
+- `901-prd.mdc` - Product Requirements Document standards
+- `902-arch.mdc` - Architecture documentation standards
+- `903-story.mdc` - User story standards
+- `801-workflow-agile.mdc` - Complete Agile workflow (optional)
+
+These rules are automatically applied when working with corresponding file types.
+
+### 2. Notepad-Based Workflow
+For a more flexible approach, use the templates in `xnotes/`:
+1. Enable Notepads in Cursor options
+2. Create a new notepad (e.g., "agile")
+3. Copy contents from `xnotes/workflow-agile.md`
+4. Use \`@notepad-name\` in conversations
+
+> 💡 **Tip:** The Notepad approach is ideal for:
+> - Initial project setup
+> - Story implementation
+> - Focused development sessions
+> - Reducing context overhead
+
+## Getting Started
+
+1. Review the templates in \`xnotes/\`
+2. Choose your preferred workflow approach
+3. Start using the AI with confidence!
+
+For demos and tutorials, visit: [BMad Code Videos](https://youtube.com/bmadcode)
 EOL
 
 # Update .gitignore if needed
@@ -53,7 +82,27 @@ else
     echo -e "# Private individual user cursor rules\n.cursor/rules/_*.mdc" > "$TARGET_DIR/.gitignore"
 fi
 
-echo "✅ Successfully transferred rules to $TARGET_DIR"
-echo "📁 Rules location: $TARGET_DIR/.cursor/rules/"
-echo "📄 Documentation added: $TARGET_DIR/docs/workflow-rules.md"
-echo "🔒 Updated .gitignore to protect private rules" 
+# Create xnotes directory and copy templates
+echo "📝 Setting up Notepad templates..."
+mkdir -p "$TARGET_DIR/xnotes"
+cp -r xnotes/* "$TARGET_DIR/xnotes/"
+
+# Update .cursorignore if needed
+if [ -f "$TARGET_DIR/.cursorignore" ]; then
+    if ! grep -q "^xnotes/" "$TARGET_DIR/.cursorignore"; then
+        echo -e "\n# Project notes and templates\nxnotes/" >> "$TARGET_DIR/.cursorignore"
+    fi
+else
+    echo -e "# Project notes and templates\nxnotes/" > "$TARGET_DIR/.cursorignore"
+fi
+
+echo "✨ Deployment Complete!"
+echo "📁 Core rules: $TARGET_DIR/.cursor/rules/"
+echo "📝 Notepad templates: $TARGET_DIR/xnotes/"
+echo "📄 Documentation: $TARGET_DIR/docs/workflow-rules.md"
+echo "🔒 Updated .gitignore and .cursorignore"
+echo ""
+echo "Next steps:"
+echo "1. Review the documentation in docs/workflow-rules.md"
+echo "2. Choose your preferred workflow approach"
+echo "3. Enable Cursor Notepads if using the flexible workflow option" 

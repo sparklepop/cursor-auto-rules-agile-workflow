@@ -1,8 +1,14 @@
-# Workflow: Agile
+AI Agent Agile Workflow
 
-## Critical Requirements
+<on-init>
+1. Verify .ai directory exists
+2. Locate approved .ai/prd.md and .ai/arch.md
+3. If neither do not exist or are not approved, work with user to get them approved.
+4. If both are approved, Identify current story status if one exists
+5. Report current workflow state
+</on-init>
 
-<critical>
+<workflow-rules>
 - All documentation created must follow these templates:
   - @prd-template.md
   - @arch-template.md
@@ -12,37 +18,23 @@
 - Only 1 Epic can be in_progress at any time
 - <critical>Do not create the first story unless the user has approved the prd and arch.</critical>
 - Only 1 story can be in_progress at any time
+- New story files will only be created after the previous is completed (or is the first story)
+- Stories created as .ai/story-{number}.story.md
+- Update arch.md change log for major changes
+- Maintain test coverage and documentation
+- Record all implementation notes and commands in the current story
 - Stories must be implemented in PRD-specified order within their Epic
 - Story status progression: draft -> in_progress -> complete
 - Never implement without story approval
-</critical>
-
-## Phase Constraints
+</workflow-rules>
 
 <critical>
-PLAN phase - only modify:
+Until PRD and ARCH are approved, only modify:
 - .ai/ directory files and structure
 - documentation files
 - readme files
 - workflow rules
-
-ACT phase - implement approved story tasks within current Epic
 </critical>
-
-## Implementation Constraints
-
-- Begin sessions by reviewing .ai/prd.md and .ai/arch.md
-- Stories created as .ai/story-{number}.story.md
-- Update arch.md change log for major changes
-- Maintain test coverage and documentation
-- Record all implementation notes and commands
-
-## Startup Checks
-
-1. Verify .ai directory exists
-2. Locate active .ai/prd.md and .ai/arch.md
-3. Identify story status if one exists
-4. Report current workflow state
 
 ## Workflow Sequence
 
@@ -107,5 +99,3 @@ sequenceDiagram
         U->>A: Verify and approve Epic completion
     end
 ```
-
-Note: This diagram illustrates the direct interaction between the USER (Admiral) and the AGENT (AI Composer), showing the complete workflow from planning through implementation while enforcing the single-epic-story constraint.

@@ -2,52 +2,42 @@
 description: @801 Rule 801 Agile Workflow Operating Proceedures for the AI Agent to follow to complete a project or goal from idea through inception and to final project completion.
 globs: "**/*.{md,story.md,prd.md,adr.md}"
 ---
-# Agile Cursor Workflow
+# AI Agent Agile Workflow
 
-<version>2.0.0</version>
+<on-init>
+1. Verify .ai directory exists
+2. Locate approved .ai/prd.md and .ai/arch.md
+3. If neither do not exist or are not approved,ser tproveare approved, Identify current story status if one exists
+5. Report current workflow state
+</on-init>
 
-## Critical Requirements
-
-<critical>
-- All documentation must be in .ai/ directory following templates:
-  - [901-prd.mdc](mdc:.cursor/rules/901-prd.mdc)
-  - [902-arch.mdc](mdc:.cursor/rules/902-arch.mdc)
-  - [903-story.mdc](mdc:.cursor/rules/903-story.mdc)
+<workflow-rules>
+- All documentation created must follow these templates:
+  - @prd-template.md
+  - @arch-template.md
+  - @story-template.md
 - PRD must define at least one Epic
 - Stories must be organized under Epics in .ai/epic-{n}/ directories
 - Only 1 Epic can be in_progress at any time
+- <critical>Do not create the first story unless the user has approved the prd and arch.</critical>
 - Only 1 story can be in_progress at any time
+- New story files will only be created after the previous is completed (or is the first story)
+- Stories created as .ai/story-{number}.story.md
+- Update arch.md change log for major changes
+- Maintain test coverage and documentation
+- Record all implementation notes and commands in the current story
 - Stories must be implemented in PRD-specified order within their Epic
 - Story status progression: draft -> in_progress -> complete
 - Never implement without story approval
-</critical>
-
-## Phase Constraints
+</workflow-rules>
 
 <critical>
-PLAN phase - only modify:
+Until PRD and ARCH are approved, only modify:
 - .ai/ directory files and structure
 - documentation files
 - readme files
 - workflow rules
-
-ACT phase - implement approved story tasks within current Epic
 </critical>
-
-## Implementation Constraints
-
-- Begin sessions by reviewing .ai/prd.md and .ai/arch.md
-- Stories created as .ai/story-{number}.story.md
-- Update ADR change log for major changes
-- Maintain test coverage and documentation
-- Record all implementation notes and commands
-
-## Startup Checks
-
-1. Verify .ai directory exists
-2. Locate active .ai/prd.md and .ai/arch.md
-3. Identify story status
-4. Report current workflow state
 
 ## Workflow Sequence
 
@@ -57,7 +47,7 @@ sequenceDiagram
     participant A as AGENT
 
     Note over U,A: PLAN PHASE (Only modify .ai/, docs, readme, rules)
-    
+
     alt No PRD Exists
         A->>U: Request project requirements
         U->>A: Provide initial requirements
@@ -87,7 +77,7 @@ sequenceDiagram
 
     loop For Each Epic in PRD
         Note over U,A: Only one Epic active at a time
-        
+
         loop For Each Story in Current Epic
             A->>U: Create and Present draft story
             U->>A: Review and provide feedback
@@ -107,10 +97,8 @@ sequenceDiagram
             A->>U: Present completed story
             U->>A: Verify and approve completion
         end
-        
+
         A->>U: Present completed Epic
         U->>A: Verify and approve Epic completion
     end
 ```
-
-Note: This diagram illustrates the direct interaction between the USER (Admiral) and the AGENT (AI Composer), showing the complete workflow from planning through implementation while enforcing the single-epic-story constraint.
