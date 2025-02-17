@@ -4,8 +4,6 @@ globs: **/*.{md,mdx}
 ---
 # Markdown Documentation Standards
 
-<version>1.1.0</version>
-
 ## Requirements
 
 - Follow the official [Markdown Guide](mdc:https:/www.markdownguide.org) for all basic and extended syntax
@@ -20,6 +18,7 @@ title: Document Title
 author: BMad
 date: 2024-02-16
 status: draft
+version: 1.2.0
 ---
 </example>
 

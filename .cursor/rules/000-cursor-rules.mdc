@@ -1,9 +1,15 @@
 ---
-description: Standards for AI-optimized Cursor rule files with efficient, structured formatting
+description: Use ALWAYS when asked to CREATE A RULE for Cursor
 globs: .cursor/rules/*.mdc
 ---
 # Cursor Rules Format
-
+---
+description: Use ALWAYS when asked to CREATE A RULE
+author: BMad
+date: 2025-02-16
+status: draft
+version: 2.0.0
+---
 ## Core Structure
 
 ```mdc
@@ -90,11 +96,26 @@ PREFIX-name.mdc where PREFIX is:
 
 ## AI Optimization Tips
 
-1. Use consistent ACTION TRIGGER OUTCOME format in descriptions
-2. Include relevant tags for context
-3. Set appropriate priority levels
-4. Provide clear, testable requirements
-5. Include specific examples for pattern matching
+1. Use precise, deterministic ACTION TRIGGER OUTCOME format in descriptions
+2. Include only essential tags that directly impact rule application
+3. Set clear priority levels to resolve conflicts efficiently
+4. Provide concise, testable requirements without redundancy
+5. Include minimal but effective examples for pattern matching
+6. Optimize for AI context window efficiency
+7. Remove any non-essential metadata or formatting
+
+## AI Context Efficiency
+
+1. Keep descriptions under 100 characters while maintaining clarity
+2. Limit examples to essential patterns only
+3. Use hierarchical structure for quick parsing
+4. Remove redundant information across sections
+5. Maintain high information density with minimal tokens
+6. Focus on machine-actionable instructions over human explanations
+
+<danger>
+  NEVER include verbose explanations or redundant context that increases AI token overhead
+</danger>
 
 ## Examples
 
