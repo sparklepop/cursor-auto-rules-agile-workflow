@@ -8,9 +8,26 @@ This is a template for establishing automatic generation of self improving granu
 
 > 💡 **Note:** For a complete guide to the Agile-Cursor Workflow system that helps manage your project with exceptional memory and consistency, see [Agile Workflow Documentation](docs/agile-readme.md).
 
-## Quick Start - Adding Rules Generator to Your Project
+## Quick Start A - Starting a New Project with the Agile Workflow and Rules Generator already in place!
 
-Getting started with the ability to generate rules in your project is incredibly simple! Just run this deployment script to upgrade your project to use the latest rule and agile workflow xnotes:
+This will set up a brand new project folder with cursor rules and agile workflow documentation already in place, along with a starter prompt to kick off your new project with the agile workflow!
+
+```bash
+# Clone this repository
+git clone https://github.com/bmadcode/cursor-auto-rules-agile-workflow.git
+cd cursor-auto-rules-agile-workflow
+
+./apply-rules.sh /path/to/your/project
+
+Example:
+./apply-rules.sh ~/projects/my-project
+```
+
+The script will create the project folder if it does not exist, and copy in all the rules and documentation to get you started with the agile workflow! It will also create a .gitignore and .cursorignore and a simple base readme.md file that you can replace or modify as needed.
+
+## Quick Start B - Adding Rules Generator to Your Existing Project
+
+If you want to improve the experience of working with cursor in an existing project, you can add the rules generator to your project by running the following command:
 
 ```bash
 # Clone this repository

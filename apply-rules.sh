@@ -9,10 +9,19 @@ fi
 
 TARGET_DIR="$1"
 
-# Check if target directory exists
+# Create target directory if it doesn't exist
 if [ ! -d "$TARGET_DIR" ]; then
-    echo "Error: Target directory '$TARGET_DIR' does not exist"
-    exit 1
+    echo "📁 Creating new project directory: $TARGET_DIR"
+    mkdir -p "$TARGET_DIR"
+    
+    # Initialize readme for new project
+    cat > "$TARGET_DIR/README.md" << 'EOL'
+# New Project
+
+This project has been initialized with agile workflow support and auto rule generation configured from [cursor-auto-rules-agile-workflow](https://github.com/bmadcode/cursor-auto-rules-agile-workflow).
+
+For workflow documentation, see [Workflow Rules](docs/workflow-rules.md).
+EOL
 fi
 
 # Create .cursor/rules directory if it doesn't exist
@@ -105,4 +114,6 @@ echo ""
 echo "Next steps:"
 echo "1. Review the documentation in docs/workflow-rules.md"
 echo "2. Choose your preferred workflow approach"
-echo "3. Enable Cursor Notepads if using the flexible workflow option" 
+echo "3. Enable Cursor Notepads if using the flexible workflow option"
+echo "4. To start a new project, use xnotes/project-idea-prompt.md as a template"
+echo "   to craft your initial message to the AI agent" 
