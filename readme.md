@@ -10,9 +10,11 @@ This is a template for establishing automatic generation of self improving granu
 
 ## IMPORTANT INFORMATION ABOUT THIS TEMPLATE
 
+Granular Rules and custom workflows are the key to getting the most out of the AI in composer mode - and with this you can automatically generate and maintain rules rapidly so your agent constantly improves and learns from its mistakes.
+
 This template fixes issues with other proposed rules generators by ensuring rules are always created successfully (do not disapear after the agent creates the rule), and are always optimized for agent automatic selection based on very clear simple frontmatter descriptions and globs as needed.
 
-Also a lot of research has gone into the best way to format rules - as there are so many competing and half baked theories - through a lot of research, mining forums and studies, and guides for Claude prompt engineering guides, client recommendations, cursor developer comments in reddit and forums, the rules will follow a general format of:
+Also a lot of research has gone into the best way to format rules - as there are so many competing and half baked theories - through a lot of research, mining forums and studies, the official docs for Claude prompt engineering, Cline recommendations, cursor developer comments in reddit and forums, the rules will follow a general format of:
 
 - Frontmatter with description and globs in proper yaml format
 - Semantic versioning
