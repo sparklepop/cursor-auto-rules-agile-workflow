@@ -119,15 +119,14 @@ graph TD
 
 ### Example Rule Generation Prompts
 
-Here are some examples of how to interact with the AI to manage your rules:
+Here are some examples of how to interact with the AI to manage your rules (notice you dont have to specifically say "create a rule" or anything like that - just describe what you want the AI to learn or never mistake or forget again and the AI will create the rule for you):
 
-```
-"Create a rule to ensure proper error handling in TypeScript files"
-"Update the testing standards to include coverage requirement of 80%"
-"I notice you're not following our naming conventions - please create a rule to enforce them"
-"The current documentation format isn't consistent - create a rule to standardize it"
-"You're not properly organizing imports - please create a rule so you will never forget this again when working in typescript files"
-```
+- "Create a rule for typescript file commenting standards so all code the agent generates with typescript will follow this consistently - dont overcomment but dont undercomment - search the web for best practices as needed re when to comment or not comment, what style, and also optimization of comments for ai agent troubleshooting and understanding"
+- "Create a rule to ensure proper error handling in TypeScript files"
+- "Update the testing standards to include coverage requirement of 80%"
+- "I notice you're not following our naming conventions - please create a rule to enforce them"
+- "The current documentation format isn't consistent - create a rule to standardize it"
+- "Import organization is a disaster! Never Forget to Keep Imports Organized in Groups and Alphabetically in Typescript Files"
 
 The AI will automatically:
 
