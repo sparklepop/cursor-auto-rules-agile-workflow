@@ -8,14 +8,14 @@ description: Use ALWAYS when asked to CREATE A RULE or UPDATE A RULE or taught a
 author: BMad
 date: 2025-02-17
 status: approved
-version: 3.0.0
+version: 3.1.0
 ---
 ## Core Structure
 
 ```mdc
 ---
 description: ACTION when TRIGGER to OUTCOME
-globs: pattern(s)
+globs: *.mdc
 tags: [tag1, tag2]  # New: For improved AI categorization
 priority: 1-5       # New: For conflict resolution
 version: Major.Minor.Patch
@@ -58,11 +58,23 @@ PREFIX-name.mdc where PREFIX is:
 - 9XX: Templates
 - _name.mdc: Private rules
 
+### Glob Pattern Examples
+Common glob patterns for different rule types:
+- Core standards: .cursor/rules/*.mdc
+- Language rules: src/**/*.{js,ts}
+- Testing standards: **/*.test.{js,ts}
+- React components: src/components/**/*.tsx
+- Documentation: docs/**/*.md
+- Configuration files: *.config.{js,json}
+- Build artifacts: dist/**/*
+- Multiple extensions: src/**/*.{js,jsx,ts,tsx}
+- Multiple files: dist/**/*, docs/**/*.md
+
 ## Required Fields
 
 ### Frontmatter
 - description: ACTION TRIGGER OUTCOME format
-- globs: File patterns or empty
+- globs: `glob pattern for files and folders`
 - tags: Categorization keywords
 - priority: 1 (highest) to 5 (lowest)
 - version: Semantic versioning
@@ -103,6 +115,7 @@ PREFIX-name.mdc where PREFIX is:
 4. Provide concise positive and negative example of rule application in practice
 5. Optimize for AI context window efficiency
 6. Remove any non-essential or redundant information
+7. Use standard glob patterns without quotes (e.g., *.js, src/**/*.ts)
 
 ## AI Context Efficiency
 
