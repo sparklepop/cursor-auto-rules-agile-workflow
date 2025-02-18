@@ -1,5 +1,7 @@
 # Cursor Automatic Rules Generation with Agile Cursor Workflow Template
 
+[Video Demo and Walkthrough](https://youtu.be/jEhvwYkI-og) - More cursor videos coming so please subscribe if you like the video!
+
 This is a template for establishing automatic generation of self improving granular rules for AI agents using Cursor's rule system. The core philosophy is that users should never need to manually create or update rules - instead, the AI agent handles rule creation and maintenance through natural language requests in a consistent format and style that:
 
 - Ensures Rules are used automatically when appropriate
