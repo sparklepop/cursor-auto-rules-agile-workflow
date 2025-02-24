@@ -33,9 +33,11 @@ Table listing choices for languages, libraries, infra, etc...
 
 #### 5. Arhictectural Diagrams
 
-- Mermaid Diagrams
+- Mermaid Diagrams as needed
 
 #### 6. Data Models, API Specs, Schemas, etc...
+
+- not exhaustive - but key ideas that need to be retained and followed across stories
 
 #### 7. Project Structure
 

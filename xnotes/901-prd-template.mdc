@@ -54,10 +54,7 @@ globs: **/prd.md
 #### 7. Story List
 - Stories are organized under Epics
 - Format: Story-{N}: {Description of story/task}
-- Granular steps and milestones
-- Clear sequential progression path
-- Implementable chunks
-- Dependencies between stories
+<note>The details of the story will be drafted later in story files</note>
 
 #### 8. Future Enhancements
 - Potential Epics for future consideration
