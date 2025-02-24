@@ -15,7 +15,7 @@ globs:
    - Unknowns, assumptions, and risks.
 3. Once the .ai/prd.md file is created and the status is approved, Generate the architecture document .ai/arch.md draft - which also needs to be approved.
 4. Once the .ai/arch.md is approved, create the draft of the first story in the .ai folder.
-5. Always use the [903-story.mdc](mdc:xnotes/903-story.mdc).mdc file as a template for the story. The story will be named <story-or-task-><N>.story.md added to the .ai folder
+5. Always use the [903-story.mdc](mdc:xnotes/903-story.mdc) file as a template for the story. The story will be named <story-or-task-><N>.story.md added to the .ai folder
    - Example: .ai/story-1.story.md or .ai/task-1.story.md
 
 - Since we follow TDD, each subtask on a story will include unit tests with at least 80% quality coverage.
