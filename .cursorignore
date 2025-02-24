@@ -3,4 +3,4 @@
 /temp
 .DS_STORE
 .gitignore
-/xnotes
+# /xnotes
