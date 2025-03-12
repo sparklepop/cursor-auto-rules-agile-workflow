@@ -1,6 +1,7 @@
 ---
 description: Use ALWAYS when asked to CREATE A RULE or UPDATE A RULE or taught a lesson from the user that should be retained as a new rule for Cursor
 globs: .cursor/rules/*.mdc
+alwaysApply: false
 ---
 # Cursor Rules Format
 ## Core Structure
@@ -9,6 +10,7 @@ globs: .cursor/rules/*.mdc
 ---
 description: ACTION when TRIGGER to OUTCOME
 globs: *.mdc
+alwaysApply: {true or false}
 ---
 
 # Rule Title
@@ -65,9 +67,9 @@ Common glob patterns for different rule types:
 ### Frontmatter
 - description: ACTION TRIGGER OUTCOME format
 - globs: `glob pattern for files and folders`
+- alwaysApply: {true or false} - when true will be attached to every conversation (but front matter still is important for it to be used!)
 
 ### Body
-- <version>X.Y.Z</version>
 - context: Usage conditions
 - requirements: Actionable items
 - examples: Both valid and invalid

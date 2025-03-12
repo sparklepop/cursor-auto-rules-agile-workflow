@@ -1,14 +1,25 @@
 # Cursor Automatic Rules Generation with Agile Cursor Workflow Template
 
+**IMPORTANT UPDATE NOTE**
+
+Cursor changes quite frequently with updates - global rules are now best defined with the alwaysApply: true - but the description field must still always be specified (at least as it seems to be operating now) with v 0.46.x - this might change in 0.47+.
+
+Also - to have the best success with auto generation of rules - update your cursor user or workspace settings to add the following object to the json object (disabling the special ui for .mdc files) - this will cure the issues many have reported around not being able to auto generate and have the file save successfully occasionally.
+
+```json
+"workbench.editorAssociations": {
+    "*.mdc": "default"
+  }
+```
+
 [Video Demo and Walkthrough](https://youtu.be/jEhvwYkI-og) - More cursor videos coming so please subscribe if you like the video!
 
-NOTE: This has been tested with Claud Sonnet 3.5 - YMMV with other models reliability.
+NOTE: This has been tested with Claud Sonnet 3.5, 3.7 and 3.7 thinking - YMMV with other models reliability.
 
 This is a template for establishing automatic generation of self improving granular rules for AI agents using Cursor's rule system. The core philosophy is that users should never need to manually create or update rules - instead, the AI agent handles rule creation and maintenance through natural language requests in a consistent format and style that:
 
 - Ensures Rules are used automatically when appropriate
 - Used specifically if desired on demand
-- Does not suffer from write issues where other rule systems fail
 
 > 💡 **Note:** For a complete guide to the Agile-Cursor Workflow system that helps manage your project with exceptional memory and consistency, see [Agile Workflow Documentation](docs/agile-readme.md).
 
