@@ -12,6 +12,8 @@ Also - to have the best success with auto generation of rules - update your curs
   }
 ```
 
+**One more NOTE to remember** - cursor 'edit' mode will work in generating new files - but does not automatically pick up the rules without adding the rule to the context. Agent mode on the other hand will find the rule, load it, and follow it properly. So for example, if you are in edit mode and ask that a rule be created - you might see a rule get generated at the root of the project or some other random odd location without giving it the 000 rule context - or better yet, doing it with Agent mode.
+
 Also - a new feature .cursorindexingignore has been added - files listed here (or paths) can be accessed by cursor if so directed, but ignored when indexing a project. With this in mind, all templates have been moved to a .cursor/templates folder and are pattern included in the .cursorindexingignore file, but not in the .cursorignore. XNotes remains in the .cursorignore file to serve the original purpose (a place to hold files that need to move elsewhere to be used)
 
 [Video Demo and Walkthrough](https://youtu.be/jEhvwYkI-og) - More cursor videos coming so please subscribe if you like the video!
@@ -151,6 +153,8 @@ The AI will automatically:
 4. Maintain version control
 
 ### File Organization
+
+This will be deprecated soon in favor of sub folder organization once its supported fully in the latest cursor version rollouts.
 
 The AI maintains rules in the following structure:
 
