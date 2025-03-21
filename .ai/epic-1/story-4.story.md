@@ -5,9 +5,9 @@ Fix spelling errors in all markdown files (*.mdc) in the .cursor directory while
 
 ## Status
 - [ ] Draft
-- [x] Ready for Implementation
+- [ ] Ready for Implementation
 - [ ] In Progress
-- [ ] Complete
+- [x] Complete
 
 ## Tasks
 1. [ ] Review .cursor/rules/*.mdc files

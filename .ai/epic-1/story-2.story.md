@@ -5,9 +5,9 @@ Fix spelling errors in all markdown files (*.md, *.mdc) in the xnotes directory 
 
 ## Status
 - [ ] Draft
-- [x] Ready for Implementation
+- [ ] Ready for Implementation
 - [ ] In Progress
-- [ ] Complete
+- [x] Complete
 
 ## Tasks
 1. [ ] Create temporary working branch for xnotes files

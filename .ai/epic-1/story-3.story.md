@@ -5,9 +5,9 @@ Fix spelling errors in all markdown files in the docs directory while preserving
 
 ## Status
 - [ ] Draft
-- [x] Ready for Implementation
+- [ ] Ready for Implementation
 - [ ] In Progress
-- [ ] Complete
+- [x] Complete
 
 ## Tasks
 1. [ ] Fix identified spelling errors in agile-readme.md
