@@ -5,8 +5,8 @@ Improve the quality of the core README.md file by fixing spelling errors, enhanc
 
 ## Status
 - [ ] Draft
-- [x] Ready for Implementation
-- [ ] In Progress
+- [ ] Ready for Implementation
+- [x] In Progress
 - [ ] Complete
 
 ## Tasks
@@ -32,7 +32,7 @@ Improve the quality of the core README.md file by fixing spelling errors, enhanc
 - [ ] All identified spelling errors are fixed
 - [ ] Grammatically correct and clear sentences
 - [ ] All technical terms preserved accurately
-- [ ] Reviewed and approved by project maintainer
+- [ ] Reviewed and approved by person submitting the Pull Request
 
 ## Implementation Notes
 - Current file: README.md
