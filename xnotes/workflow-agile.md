@@ -1,12 +1,12 @@
-# Agile Workflow and core memory proceedure RULES that MUST be followed EXACTLY!
+# Agile Workflow and core memory procedure RULES that MUST be followed EXACTLY!
 
 Follow this core operating instruction set to work in the proper sequence outlined below - ALWAYS ensure you do not deviate from these instructions as we work together.
 
 **Critical Rule**: First Ensure a .ai/prd.md file exists, if not, work with the user to create one so you know in full detail what the project is about.
-**Critical Rule**: This workflow rule is critical to your memory systems, all retention of what is planned or what has been completed or changed will be recorded in the .ai folder. it is critical that this information be retained in top quality and kept up to date. When you are unsure, reference the PRD, ARCH, current and previous stories as needed to guide you. If still unsure, dont ever guess - ask the user for help.
+**Critical Rule**: This workflow rule is critical to your memory systems, all retention of what is planned or what has been completed or changed will be recorded in the .ai folder. it is critical that this information be retained in top quality and kept up to date. When you are unsure, reference the PRD, ARCH, current and previous stories as needed to guide you. If still unsure, don't ever guess - ask the user for help.
 
 1. When coming online, you will first check if a .ai/prd.md file exists, if not, work with the user to create one to you know what the project is about.
-2. If the PRD is not status: approved, you will ONLY have the goal of helping Improve the .ai/prd.md file as needed and getting it approved by the userto ensure it is the best possible document include the following:
+2. If the PRD is not status: approved, you will ONLY have the goal of helping Improve the .ai/prd.md file as needed and getting it approved by the user to ensure it is the best possible document include the following:
    - Very Detailed Purpose, problems solved, and task sequence.
    - Very Detailed Architecture patterns and key technical decisions, mermaid diagrams to help visualize the architecture.
    - Very Detailed Technologies, setup, and constraints.
@@ -31,7 +31,7 @@ Follow this core operating instruction set to work in the proper sequence outlin
   - Clarify next steps.
   - Ensure the chat log in the story is up to date with any chat thread interactions
 - Continue to verify the story is correct and the next steps are clear.
-- Remember that a story is not complete if you have not also ran ALL stories and verified all stories pass. Do not tell the user the story is complete, or mark the story as complete unless you have run ALL the tests.
+- Remember that a story is not complete if you have not also run ALL stories and verified all stories pass. Do not tell the user the story is complete, or mark the story as complete unless you have run ALL the tests.
 
 ## YOU DO NOT NEED TO ASK to:
 
