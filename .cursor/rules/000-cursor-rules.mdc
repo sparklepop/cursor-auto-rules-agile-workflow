@@ -87,13 +87,13 @@ Common glob patterns for different rule types:
   - <danger>
   - <required>
 - Always indent content within XML or nested XML tags by 2 spaces
-- Emojies and Mermaid diagrams are allowed if it is not redundant and better explains the rule for the AI comprehension.
+- Emojis and Mermaid diagrams are allowed if it is not redundant and better explains the rule for the AI comprehension.
 
 
 ## Critical Rules
   - Keep frontmatter description under 120 characters (or less) while maintaining clear intent for rule selection by AI Agent
-  - Keep the rule DRY - do not repeate or be redundant or overly explanetory.
-  - Use susinct markdown the agent can easily understand.
+  - Keep the rule DRY - do not repeat or be redundant or overly explanatory
+  - Use succinct markdown the agent can easily understand
   - the front matter MUST ALWAYS have description, globs, and alwaysApply, even if the value is null
   - Use standard glob patterns without quotes (e.g., *.js, src/**/*.ts)
   - TRY to keep the total rule line count under 50, better under 25, lines (unless there are diagrams or longer required examples, as that will increase the overall line count)
