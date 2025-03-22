@@ -247,5 +247,5 @@ The workflow is designed to work seamlessly with Cursor's AI capabilities:
 
 ## Cost Savings
 
-- LLMs outside of cursory if you have them available, such as ChatGPT, Claude, Gemini, etc are also great to generate the initial PRD and architecture, and really itterate on them.
+- LLMs outside of Cursor, if you have them available, such as ChatGPT, Claude, Gemini, etc. are also great to generate the initial PRD and architecture, and really iterate on them.
 - Within Cursor, currently you can use DeepSeek R1 for example which seems to be free and also decent and udpating PRD and architecture - but I have found it to be a bit less reliable than using Claude to follow the format I want - but much cheaper, if trying to do it all in cursor planning.

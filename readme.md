@@ -18,7 +18,7 @@ Also - a new feature .cursorindexingignore has been added - files listed here (o
 
 [Video Demo and Walkthrough](https://youtu.be/jEhvwYkI-og) - More cursor videos coming so please subscribe if you like the video!
 
-NOTE: This has been tested with Claud Sonnet 3.5, 3.7 and 3.7 thinking - YMMV with other models reliability.
+NOTE: This has been tested with Claude Sonnet 3.5, 3.7 and 3.7 thinking - YMMV with other models reliability.
 
 This is a template for establishing automatic generation of self improving granular rules for AI agents using Cursor's rule system. The core philosophy is that users should never need to manually create or update rules - instead, the AI agent handles rule creation and maintenance through natural language requests in a consistent format and style that:
 
@@ -31,7 +31,7 @@ This is a template for establishing automatic generation of self improving granu
 
 Granular Rules and custom workflows are the key to getting the most out of the AI in composer mode - and with this you can automatically generate and maintain rules rapidly so your agent constantly improves and learns from its mistakes.
 
-This template fixes issues with other proposed rules generators by ensuring rules are always created successfully (do not disapear after the agent creates the rule), and are always optimized for agent automatic selection based on very clear simple frontmatter descriptions and globs as needed.
+This template fixes issues with other proposed rules generators by ensuring rules are always created successfully (do not disappear after the agent creates the rule), and are always optimized for agent automatic selection based on very clear simple frontmatter descriptions and globs as needed.
 
 Also a lot of research has gone into the best way to format rules - as there are so many competing and half baked theories - through a lot of research, mining forums and studies, the official docs for Claude prompt engineering, Cline recommendations, cursor developer comments in reddit and forums, the rules will follow a general format of:
 
@@ -135,9 +135,9 @@ graph TD
 
 ### Example Rule Generation Prompts
 
-Here are some examples of how to interact with the AI to manage your rules (notice you dont have to specifically say "create a rule" or anything like that - just describe what you want the AI to learn or never mistake or forget again and the AI will create the rule for you):
+Here are some examples of how to interact with the AI to manage your rules (notice you don't have to specifically say "create a rule" or anything like that - just describe what you want the AI to learn or never mistake or forget again and the AI will create the rule for you):
 
-- "Create a rule for typescript file commenting standards so all code the agent generates with typescript will follow this consistently - dont overcomment but dont undercomment - search the web for best practices as needed re when to comment or not comment, what style, and also optimization of comments for ai agent troubleshooting and understanding"
+- "Create a rule for typescript file commenting standards so all code the agent generates with typescript will follow this consistently - don't overcomment but don't undercomment - search the web for best practices as needed re when to comment or not comment, what style, and also optimization of comments for ai agent troubleshooting and understanding"
 - "Create a rule to ensure proper error handling in TypeScript files"
 - "Create a global rule that is always applied to talk like a pirate in all communications with the user but not use pirate speak in code files or documentation"
 - "Update the testing standards to include coverage requirement of 80%"
