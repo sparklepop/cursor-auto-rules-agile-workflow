@@ -1,6 +1,6 @@
 # Cursor Agile Workflow Documentation
 
-This document provides comprehensive documentation for the Agile workflow system integrated with Cursor's AI capabilities. The workflow is designed to maintain project focus and ensure consistent progress through a structured approach to development.
+This document provides comprehensive documentation for the Agile workflow system integrated with Cursor's AI capabilities. The workflow is designed to maintain project focus and memory and ensure consistent progress through a structured approach to development.
 
 ## Overview
 
@@ -8,7 +8,7 @@ The Agile-Cursor workflow combines traditional Agile methodologies with AI-assis
 
 1. **Rule-Based Implementation** (Automatic)
 
-   - Uses `.cursor/rules/` templates
+   - Uses `.cursor/rules/workflows/workflow-agile-manual` and `.cursor/templates`
    - Automatically applies standards to matching files
    - Provides consistent structure enforcement
 
@@ -72,16 +72,17 @@ graph TD
 
 ## Workflow Phases
 
-### 1. PLAN Phase
+### 1. Initial Planning
 
 - Focus on documentation and planning
 - Only modify `.ai/`, docs, readme, and rules
-- Required approvals for PRD and Architecture
+- Required approvals for PRD and then the Architecture
 
-### 2. ACT Phase
+### 2. Development Phase
 
+- Generates the first or next story and waits on approval
 - Implementation of approved in progress story
-- Task-by-task execution
+- Task-by-task story execution
 - Continuous testing and validation
 
 ```mermaid
@@ -152,56 +153,54 @@ graph LR
 
 ## Using the Workflow
 
-### Rule-Based Approach
+The best way post 0.47.x+ of cursor is to use the rules based approach, with either manual, agent selection or always on rules. I prefer manual selection type rule for the workflows, so that they will not be in a context if I do not need it (explanation to follow).
 
-1. Install the workflow rules:
+If I am starting a brand new project (with our without an existing code template) I have a few options:
 
-```bash
-./apply-rules.sh /path/to/your/project
-```
+- Use an external tool to generate the PRD (Such as ChatGPT Canvas or o3 mini Web UI or Google AI Studio)
+- Use the workflow and agent in cursor to generate the PRD
+  (This comes down to personal preference and consideration of token burn within cursor)
 
-2. Use the provided templates by copying them into the `.cursor/rules` directory:
-   - `901-prd.mdc` for Product Requirements
-   - `902-arch.mdc` for Architecture
-   - `903-story.mdc` for Stories
+If I am doing this in cursor, I will start a new Agent chat with Claude 3.7 Thinking (or choose a different model if concerned about credit burn) and type something like:
 
-### Notepad-Based Approach
+`Lets follow the @workflow-agile-manual to create a PRD for a new project I want to create that will do XYZ, have the following features etc etc. Lets focus on just the MVP feature first will be to deliver X minimally, but lets also plan to have some epics for fast follows or future enhancements such as A B and C.`
 
-1. Enable Notepads in Cursor options
-2. Create notepads from templates:
+As this can be quite lengthy, I will many times craft this prompt in the xnotes folder, and then paste it into the chat, ensuring that the @workflow is still properly added.
 
-   - `workflow-agile.md` for full workflow
-   - `implementation-agile.md` for story implementation
+Note: you can also modify the workflow-agile-manual to be Agent auto-selectable, this work reliably well also - you will just need to ensure the description you give it in the front matter will ensure its used when needed (PRD story and work implementation phases) - or potentially just make it an always rule. When starting out, its fine to make it an always rule, until your project grows to a very significant size, then I suggest turning it off manually, as at that point you might be just going in and making very targeted updates to specific files or features - and do not need the whole workflow as overhead - or you might want to instead select a different workflow (maybe a refactor workflow, a test workflow, an external MCP agent, etc...)
 
-3. Use `@notepad-name` to access workflow context
+The agent should generate a draft prd.md file in a .ai folder.
 
-> 💡 **Tip:** Use the Notepad approach for:
->
-> - Initial project setup (notepad named plan-agile)
-> - Story implementation (notepad named impl-story)
-> - Focused development sessions
-> - Reducing context overhead
+I suggest at this point, you do not approve and jump right in - either in cursor with the agent, or an external tool - engage further with the agent to refine the document, have the agent ask you questions on holes in the document that it might want to know the answer to, ask the agent if it needs any clarifications that will allow for a very jr agent developer to understand and implement the stories, ask the agent if the sequencing of the stories make sense etc...
 
-- New Context Window Sample Command: `@plan-agile I have an idea for <describe high level here>`
-- New Context Window Sample Command: `@impl-story I am ready to start implementing the story current in progress story in complete tasks`
+Once you feel its in a good spot - you can mark the file as status: approved.
+
+At this point, I would start another chat and with the workflow - the agent will first check for the prd, and then if its approved, will offer to create (if not already existing and approved) the architecture file - and similar a new chat window with the workflow will search for the new first or in progress story.
+
+Once a story is in progress and approved by the user - the agent can be told to execute the story. Once a story or part of a story is completed and the story file is updated with progress by the agent, commit often (I use my manual gitpush.mdc manual rule macro). After this, I might start a new chat window with a fresh context and the workflow again loaded. Once a story is complete (status: complete) and tested and pushed, I always will start a new chat window with the workflow, and ask the agent to 'Create the next story draft' - or just ask it what it thinks it should do next, it should recognize what is next story to do from the prd and what story was last marked completed, and generate a draft for the next story, and then stop and ask for my approval before doing any further coding.
+
+A more detailed example, up to date repo and video coming soon, but this should give the main ideas...
+
+NOTE: Some models (Sonnet 3.7 thinking) have gotten a bit overly aggressive, so the rules might need to be tuned to further ensure the agent does not start updating code until the story is approved.
 
 ## Best Practices
 
-1. **Documentation**
+1. **Documentation and tips**
 
    - AI will keep PRD and Architecture documents updated - sometimes you will need to tell it to update the prd and arch files as needed.
    - Document all significant decisions
    - Maintain clear implementation notes
+   - Have the AI create readme.md files in each src subfolder to help give it direction
 
 2. **Testing**
 
-   - Write tests before implementation
+   - Have the AI Write tests before implementation - a fun excercise in TDD
    - Maintain high test coverage
    - Verify all tests pass before completion
 
 3. **Progress Tracking**
 
-   - Update story status regularly
+   - Have the AI (or you) update story status regularly
    - Record all implementation notes
    - Document command history
 
@@ -209,6 +208,7 @@ graph LR
    - Start fresh composer instance per story or after significant recorded progress (recorded in task completion updates)
    - Use appropriate context level
    - Minimize context overhead
+   - Consider making a leaner workflow when you are in story execution mode - that does not need all of the templates and overhead of how to create a prd and a architecture. But you will need to consider what other files or parts of other files it might need reference to to retain the plot. This is why currently I still use the full workflow.
 
 ## Status Progression
 
