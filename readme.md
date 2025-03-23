@@ -1,6 +1,6 @@
 # Cursor Automatic Rules Generation with Agile Workflow Template
 
-Version: <version>2.0</version>
+Cursor Version Applicability: 0.46+
 
 ## Important Updates (March 22, 2025)
 
@@ -152,7 +152,6 @@ The AI automatically:
 
 ## Private vs Shared Rules
 
-- **Shared rules:** Standard naming convention (e.g., `000-cursor-rules.mdc`)
 - **Private rules:** Store in a folder added to .gitignore (e.g., `.cursor/rules/my-rules/pirate-speak-always.mdc`)
 
 ## Best Practices
@@ -179,8 +178,7 @@ The AI automatically:
 ### Rule Removal
 
 - Some rules become unnecessary as codebase grows as the AI will follow surrounding code styles and conventions
-- The minimal amount of rules, the better
-- Different AI Model selection can impact interpretation of rules - so examples and specificity of rule details are critical to reduce ambiguity
+- The minimal amount of rules, the better - so prune rules as the codebase changes or models improve
 
 ## Contributing
 
