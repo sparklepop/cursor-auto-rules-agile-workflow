@@ -32,11 +32,7 @@ if not exist "%TARGET_DIR%\.cursor\templates\" (
 )
 
 echo Copying core rule files...
-for %%F in (.cursor\rules\*.mdc) do (
-    if not exist "%TARGET_DIR%\.cursor\rules\%%~nxF" (
-        copy "%%F" "%TARGET_DIR%\.cursor\rules\" >nul
-    )
-)
+xcopy ".cursor\rules\*.*" "%TARGET_DIR%\.cursor\rules\" /E /I /Y >nul
 
 echo Copying template files...
 xcopy ".cursor\templates\*.*" "%TARGET_DIR%\.cursor\templates\" /E /I /Y >nul

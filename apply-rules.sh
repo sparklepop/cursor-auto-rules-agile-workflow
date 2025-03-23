@@ -32,7 +32,7 @@ mkdir -p "$TARGET_DIR/.cursor/templates"
 
 # Copy core rule files
 echo "📦 Copying core rule files..."
-cp -n .cursor/rules/*.mdc "$TARGET_DIR/.cursor/rules/"
+cp -r .cursor/rules/* "$TARGET_DIR/.cursor/rules/"
 
 # Copy template files
 echo "📦 Copying template files..."
