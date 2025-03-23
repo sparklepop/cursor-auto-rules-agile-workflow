@@ -1,5 +1,5 @@
 ---
-description: Always follow this when the user requests that a rule be added or modified
+description: Always follow this when the user requests that a rule be added or modified, or asks you to remember to always do something in the future
 globs: 
 alwaysApply: false
 ---
