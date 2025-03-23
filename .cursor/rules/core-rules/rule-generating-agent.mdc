@@ -20,6 +20,7 @@ alwaysApply: {true or false}
 
 - When to apply this rule
 - Prerequisites or conditions
+- Why the rule was added or is needed
 
 ## Critical Rules
 
@@ -28,11 +29,11 @@ alwaysApply: {true or false}
 ## Examples
 
 <example>
-...
+{valid rule application}
 </example>
 
 <example type="invalid">
-...
+{invalid rule application}
 <example>
 ```
 
@@ -52,14 +53,14 @@ All rules files will be under an organizational folder:
 ## Glob Pattern Examples
 Common glob patterns for different rule types:
 - Core standards: .cursor/rules/*.mdc
-- Language rules: src/**/*.cs, src/**/*.cpp
-- Testing standards: **/*.test.ts, **/*.test.js
+- Language rules: *.cs, *.cpp
+- Testing standards: *.test.ts, *.test.js
 - React components: src/components/**/*.tsx
-- Documentation: docs/**/*.md
+- Documentation: docs/**/*.md, *.md
 - Configuration files: *.config.js
 - Build artifacts: dist/**/*
-- Multiple extensions: src/**/*.js, src/**/*.ts, src/**/*.tsx
-- Multiple files: dist/**/*, docs/**/*.md
+- Multiple extensions: *.js, *.ts, *.tsx
+- Multiple patterns: dist/**/*.*, docs/**/*.md, *test*.*
 
 ## Critical Rules
   - Rule files will be located and named ALWAYS as: `.cursor/rules/{organizational-folder}/rule-name-{auto|agent|manual|always}.mdc`

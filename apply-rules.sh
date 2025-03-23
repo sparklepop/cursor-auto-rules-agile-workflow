@@ -53,32 +53,9 @@ This project has been updated to use the auto rule generator from [cursor-auto-r
 
 - Automated rule generation
 - Standardized documentation formats
+- Supports all 4 Note Types automatically
 - AI behavior control and optimization
 - Flexible workflow integration options
-
-## Workflow Integration Options
-
-### 1. Automatic Rule Application (Recommended)
-The core workflow rules are automatically installed in `.cursor/rules/`:
-- `901-prd.mdc` - Product Requirements Document standards
-- `902-arch.mdc` - Architecture documentation standards
-- `903-story.mdc` - User story standards
-- `801-workflow-agile.mdc` - Complete Agile workflow (optional)
-
-These rules are automatically applied when working with corresponding file types.
-
-### 2. Notepad-Based Workflow
-For a more flexible approach, use the templates in `xnotes/`:
-1. Enable Notepads in Cursor options
-2. Create a new notepad (e.g., "agile")
-3. Copy contents from `xnotes/workflow-agile.md`
-4. Use \`@notepad-name\` in conversations
-
-> 💡 **Tip:** The Notepad approach is ideal for:
-> - Initial project setup
-> - Story implementation
-> - Focused development sessions
-> - Reducing context overhead
 
 ## Getting Started
 
@@ -98,8 +75,8 @@ else
     echo -e "# Private individual user cursor rules\n.cursor/rules/_*.mdc" > "$TARGET_DIR/.gitignore"
 fi
 
-# Create xnotes directory and copy templates
-echo "📝 Setting up Notepad templates..."
+# Create xnotes directory and copy files
+echo "📝 Setting up samples xnotes..."
 mkdir -p "$TARGET_DIR/xnotes"
 cp -r xnotes/* "$TARGET_DIR/xnotes/"
 
@@ -122,15 +99,8 @@ else
 fi
 
 echo "✨ Deployment Complete!"
-echo "📁 Core rules: $TARGET_DIR/.cursor/rules/"
-echo "📁 Templates: $TARGET_DIR/.cursor/templates/"
-echo "📝 Notepad templates: $TARGET_DIR/xnotes/"
-echo "📄 Documentation: $TARGET_DIR/docs/workflow-rules.md"
+echo "📁 Core rule generator: $TARGET_DIR/.cursor/rules/core-rules/rule-generating-agent.mdc"
+echo "📁 Sample subfolders and rules: $TARGET_DIR/.cursor/rules/{sub-folders}/"
+echo "📁 Sample Agile Workflow Templates: $TARGET_DIR/.cursor/templates/"
+echo "📄 Workflow Documentation: $TARGET_DIR/docs/workflow-rules.md"
 echo "🔒 Updated .gitignore, .cursorignore, and .cursorindexingignore"
-echo ""
-echo "Next steps:"
-echo "1. Review the documentation in docs/workflow-rules.md"
-echo "2. Choose your preferred workflow approach"
-echo "3. Enable Cursor Notepads if using the flexible workflow option"
-echo "4. To start a new project, use xnotes/project-idea-prompt.md as a template"
-echo "   to craft your initial message to the AI agent" 
