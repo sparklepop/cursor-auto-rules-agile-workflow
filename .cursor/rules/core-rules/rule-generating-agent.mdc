@@ -78,6 +78,7 @@ Common glob patterns for different rule types:
   - TRY to keep the total rule line count under 50 lines, better under 25 lines
   - Always include a valid and invalid example
   - NEVER use quotes around glob patterns, NEVER group glob extensions with `{}`
+  - If the request for a rule or a future behavior change includes context of a mistake is made, this would be great to use in the example for the rule
   - After rule is created or updated, Respond with the following:
     - AutoRuleGen Success: path/rule-name.mdc
     - Rule Type: {Rule Type}

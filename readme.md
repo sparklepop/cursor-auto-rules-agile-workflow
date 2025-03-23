@@ -35,19 +35,19 @@ The `.cursorindexingignore` feature allows certain files to be accessible but ex
 This template dramatically improves AI workflows in Agent/Edit mode by providing:
 
 1. **Automated Rule Generation:** Create and update rules through natural language requests
-2. **Consistent AI Behavior:** Rules are applied automatically when appropriate or on demand
-3. **Quick Project Setup:** Pre-configured best practices for AI interactions
+2. **Consistent AI Behavior:** Rules are applied automatically when appropriate or on demand or always depending on which of the 4 rule types are created/exist
+3. **Quick Project Setup:** A script that will set up a new project with core rules and workflow, or add the rule generator to an existing project in a non destructive manner to existing cursor rules
 
 > 💡 **Note:** For a complete guide to the Agile-Cursor Workflow system, see [Agile Workflow Documentation](docs/agile-readme.md).
 
 ## Key Concepts
 
 - Rules use frontmatter with proper YAML format (description, globs, alwaysApply)
-- Markdown formatting with XML tags for examples
-- Mermaid diagrams for visual clarity
+- Rules will be generated with explicitly requesting a rule be create, or implied by asking for corrective behavior from the agent
+- Rules are enhanced by including both a valid and invalid example to better train the llm
+- Examples will include context of corrective action or chat context when appropriate
 - Short, focused rules (target: 25 lines, maximum: 50 lines)
-- Four rule types with organized subfolder structure
-- Examples of good/bad patterns to guide AI understanding
+- Four rule types within an automatically organized subfolder categorization structure
 
 ## Quick Start Options
 
@@ -125,7 +125,8 @@ graph TD
 No need to explicitly say "create a rule" - just describe the desired behavior:
 
 - "Create a typescript file commenting standard that balances thoroughness with brevity"
-- "When doing deep research, always check the system date with the 'date' command and use Tavily MCP"
+- "Please create an agent rule so that whenever I request deep research specifically on a topic you will first always inject the system date time into the context and use the Tavily search MCP tool to improve the results."
+- "Never create JS files again, you will only create TS or JSON files!" or "I asked you to set up Jest for our project and you created a JestConfig.js file, yet this is a TypeScript only project. Never again create any JS files. Always use TypeScript or JSON if necessary." - the second version of this request will ensure that the rule examples includes this specific call out, helping the agent learn better from actual mistakes made.
 - "Ensure proper error handling in all TypeScript files"
 - "Talk like a pirate in communications but not in code or documentation"
 - "Update testing standards to require 80% coverage"
