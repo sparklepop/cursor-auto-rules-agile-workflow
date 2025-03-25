@@ -45,6 +45,7 @@ All rules files will be under an organizational folder:
 - .cursor/rules/testing-rules - rules about testing
 - .cursor/rules/tool-rules - rules specific to different tools, such as git, linux commands, direction of usage of MCP tools
 - .cursor/rules/ts-rules - typescript language specific rules
+- .cursor/rules/rb-rules - ruby specific rules
 - .cursor/rules/py-rules - python specific rules
 - .cursor/rules/ui-rules - rules about html, css, react
 * create new folders under .cursor/rules/ as needed following similar grouping conventions,
@@ -59,7 +60,7 @@ Common glob patterns for different rule types:
 - Documentation: docs/**/*.md, *.md
 - Configuration files: *.config.js
 - Build artifacts: dist/**/*
-- Multiple extensions: *.js, *.ts, *.tsx
+- Multiple extensions: *.js, *.ts, *.tsx, *.rb
 - Multiple patterns: dist/**/*.*, docs/**/*.md, *test*.*
 
 ## Critical Rules
